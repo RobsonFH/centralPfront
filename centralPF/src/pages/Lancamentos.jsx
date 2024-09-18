@@ -4,14 +4,15 @@ function Lancamentos() {
   const [filtros, setFiltros] = useState({
     operador: '',
     data: '',
+    hora: '',
     retirar: '',
-    numero: ''
+    valor: '' // Alterado de numero para valor
   });
 
   const [lancamentos, setLancamentos] = useState([
     // Exemplo de dados de lançamentos
-    { id: 1, operador: 'Operador 1', valor: 100, tipo: 'Venda', data: '2024-08-08' },
-    { id: 2, operador: 'Operador 2', valor: 200, tipo: 'Pagamento', data: '2024-08-07' },
+    { id: 1, operador: 'Operador 1', valor: 100, tipo: 'Recebeu', data: '2024-08-08', hora: '10:00' },
+    { id: 2, operador: 'Operador 2', valor: 200, tipo: 'Pagou', data: '2024-08-07', hora: '14:30' },
     // Adicione mais dados conforme necessário
   ]);
 
@@ -55,18 +56,27 @@ function Lancamentos() {
             style={{ padding: '0.5rem', borderRadius: '0.25rem', border: '1px solid #ced4da' }}
           />
           <input
-            type="text"
-            name="retirar"
-            placeholder="Retirar"
-            value={filtros.retirar}
+            type="time"
+            name="hora"
+            value={filtros.hora}
             onChange={handleChange}
             style={{ padding: '0.5rem', borderRadius: '0.25rem', border: '1px solid #ced4da' }}
           />
+          <select
+            name="retirar"
+            value={filtros.retirar}
+            onChange={handleChange}
+            style={{ padding: '0.5rem', borderRadius: '0.25rem', border: '1px solid #ced4da' }}
+          >
+            <option value="">Selecione</option>
+            <option value="Recebeu">Recebeu</option>
+            <option value="Pagou">Pagou</option>
+          </select>
           <input
-            type="text"
-            name="numero"
-            placeholder="Número"
-            value={filtros.numero}
+            type="number"
+            name="valor"
+            placeholder="Valor"
+            value={filtros.valor}
             onChange={handleChange}
             style={{ padding: '0.5rem', borderRadius: '0.25rem', border: '1px solid #ced4da' }}
           />
@@ -85,6 +95,7 @@ function Lancamentos() {
                 <th>Valor</th>
                 <th>Tipo</th>
                 <th>Data</th>
+                <th>Hora</th>
                 <th>Excluir</th>
               </tr>
             </thead>
@@ -95,6 +106,7 @@ function Lancamentos() {
                   <td>{lancamento.valor}</td>
                   <td>{lancamento.tipo}</td>
                   <td>{lancamento.data}</td>
+                  <td>{lancamento.hora}</td>
                   <td>
                     <button onClick={() => handleDelete(lancamento.id)}>Excluir</button>
                   </td>

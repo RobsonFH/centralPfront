@@ -43,7 +43,7 @@ function Gerente() {
           onChange={handleSearchChange}
           style={{ marginRight: '1rem', padding: '0.5rem', width: '100%', maxWidth: '300px', borderRadius: '0.25rem', border: '1px solid #ced4da' }}
         />
-        <button onClick={handleCreate}>Criar Novo Gerente</button>
+      
       </div>
       <div className="table-container">
         <table>
@@ -55,7 +55,7 @@ function Gerente() {
               <th>Sócio</th>
               <th>C / S</th>
               <th>Status</th>
-              <th>Editar</th>
+            
             </tr>
           </thead>
           <tbody>
@@ -67,10 +67,7 @@ function Gerente() {
                 <td>{gerente.status}</td>
                 <td>{gerente.status}</td>
                 <td>{gerente.status}</td>
-                <td>
-                  <button onClick={() => handleEdit(gerente.id)}>Editar</button>
-                  <button onClick={() => handleDelete(gerente.id)}>Apagar</button>
-                </td>
+                
               </tr>
             ))}
           </tbody>

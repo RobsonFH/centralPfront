@@ -65,8 +65,11 @@ function Cambista() {
               <td>{cambista.saldo}</td>
               <td>{cambista.status}</td>
               <td>
-                <button onClick={() => handleEdit(cambista.id)}>Editar</button>
-                <button onClick={() => handleDelete(cambista.id)}>Apagar</button>
+                {/* Div para separar os botões com espaçamento */}
+                <div style={{ display: 'flex', gap: '7rem' }}>
+                  <button onClick={() => handleEdit(cambista.id)}>Editar</button>
+                  <button onClick={() => handleDelete(cambista.id)}>Apagar</button>
+                </div>
               </td>
             </tr>
           ))}

@@ -66,7 +66,7 @@ function PrestarContas() {
           onChange={handleChange}
           style={{ padding: '0.5rem', width: '200px', borderRadius: '0.25rem', border: '1px solid #ced4da' }}
         />
-        <button onClick={handlePrestarContaTodos} style={{ padding: '0.5rem 1rem' }}>Prestar Conta com Todos</button>
+        
       </div>
 
       <h3>Lista de Cambistas</h3>
@@ -82,7 +82,6 @@ function PrestarContas() {
               <th>Lançamentos</th>
               <th>Total</th>
               <th>Prestação</th>
-              <th>Ação</th>
             </tr>
           </thead>
           <tbody>
@@ -96,15 +95,9 @@ function PrestarContas() {
                 <td>{cambista.lancamentos}</td>
                 <td>{cambista.total}</td>
                 <td>
-                  <input
-                    type="text"
-                    placeholder="Prestação"
-                    style={{ padding: '0.25rem', width: '100px', borderRadius: '0.25rem', border: '1px solid #ced4da' }}
-                  />
+                <button onClick={() => handlePrestarConta(cambista.id)} style={{ padding: '0.5rem 1rem' }}>Prestar Contas</button>
                 </td>
-                <td>
-                  <button onClick={() => handlePrestarConta(cambista.id)} style={{ padding: '0.5rem 1rem' }}>Prestar Contas</button>
-                </td>
+               
               </tr>
             ))}
           </tbody>
